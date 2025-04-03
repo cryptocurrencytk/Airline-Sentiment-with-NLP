@@ -1,5 +1,5 @@
 
-# Airline-Sentiment-with-NLP Summary
+# Airline-Sentiment-with-NLP Readme
 
 This document summarizes a sentiment analysis project conducted on American Airlines customer reviews spanning from December 2013 to April 2024. The project applied multiple natural language processing techniques to classify customer reviews as positive or negative recommendations.
 
