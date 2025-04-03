@@ -7,23 +7,28 @@ This document summarizes a sentiment analysis project conducted on American Airl
 - **Data Source**: www.airlinequality.com
 - **Time Period**: December 2013 - April 2024
 - **Goal**: Analyze customer sentiments to help American Airlines make data-driven decisions for enhancing customer experience
+- **Project Files**:
+  - `aa_transformer_(bert).py` - Implementation of the BERT transformer model
+  - `v5_downsample.py` - Code for the downsampling approach
+  - `v5_Original.py` - Original implementation without rebalancing
+  - `v5_oversample.py` - Code for the oversampling approach
 
 ## Data Issues and Adjustments
 - **Data Imbalance**: The dataset showed significant imbalance between positive and negative recommendations
 - **Rebalancing Approaches**:
- - Over-sampling: Increased the minority class to match the majority class
- - Under-sampling: Reduced the majority class to match the minority class
+  - Over-sampling: Increased the minority class to match the majority class (implemented in `v5_oversample.py`)
+  - Under-sampling: Reduced the majority class to match the minority class (implemented in `v5_downsample.py`)
 - **Text Preprocessing**:
- - Removed HTML tags
- - Transformed abbreviated negations
- - Tokenization (removed non-letters and non-numbers)
- - Removed stop words
- - Applied lemmatization
- - Joined words back together
+  - Removed HTML tags
+  - Transformed abbreviated negations
+  - Tokenization (removed non-letters and non-numbers)
+  - Removed stop words
+  - Applied lemmatization
+  - Joined words back together
 - **Evaluation Adjustment**: Due to imbalance, the team used AUC and F1-score instead of relying solely on accuracy
 
 ## Methodology
-The project employed three different approaches to sentiment analysis:
+The team employed three different approaches to sentiment analysis:
 
 ### 1. Traditional Method: TF-IDF
 - Simple, interpretable approach suitable for smaller datasets
@@ -36,14 +41,14 @@ The project employed three different approaches to sentiment analysis:
 - Applied embedding averaging to represent reviews
 - Addressed data imbalance through over-sampling and under-sampling
 - Tested multiple classification models:
- - Logistic Regression
- - LASSO and RIDGE Regression
- - Random Forest
- - Boosted Trees
+  - Logistic Regression
+  - LASSO and RIDGE Regression
+  - Random Forest
+  - Boosted Trees
 - Performance: Random Forest and Boosted Trees with over-sampling achieved 99.97% AUC
 
 ### 3. Transformer Method: BERT
-- Utilized pre-trained BERT model
+- Utilized pre-trained BERT model (implemented in `aa_transformer_(bert).py`)
 - Applied fine-tuning for the classification task
 - Performance: 98.81% AUC, 84.01% F1-score, 95.71% Accuracy
 
